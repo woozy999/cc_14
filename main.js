@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //task 2
 
     async function fetchTickets() {
+        loadingIndicator.style.display = 'block'; //task 4
         try {
             const response = await fetch('https://jsonplaceholder.typicode.com/posts');
             if (!response.ok) {
@@ -22,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             displayTickets(tickets);
         } catch (error) {
             handleError(error);
+        } finally {
+            loadingIndicator.style.display = 'none'; //task 4
         }
     }
 
